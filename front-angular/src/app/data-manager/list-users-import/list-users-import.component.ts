@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
 import { NgbModalRef, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Observer, Observable } from 'rxjs';
-import { Users } from 'src/app/services/git-hub/git-hub.model';
+import { User } from 'src/app/services/git-hub/git-hub.model';
 import { GitHubService } from 'src/app/services/git-hub/git-hub.service';
 
 @Component({
@@ -14,7 +14,7 @@ export class ListUsersImportComponent implements OnInit {
   @ViewChild('content', { static: false }) content: TemplateRef<ViewChild>;
   private modalRef: NgbModalRef;
   private observer: Observer<string>;
-  users: Array<Users>;
+  users: Array<User>;
 
   constructor(private modalService: NgbModal, private gitHubService: GitHubService) { }
 

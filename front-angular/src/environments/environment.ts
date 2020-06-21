@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiLookBack: 'localhost:3000',
+  apiLookBack: 'http://localhost:3000',
   apiGitHub: 'https://api.github.com'
 };
 

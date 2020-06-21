@@ -1,9 +1,12 @@
+import { LookBackService } from './../../services/look-back/look-back.service';
 import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
 import {FormlyFieldConfig, FormlyFormOptions} from '@ngx-formly/core';
 import { NgbModalRef, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Observer, Observable } from 'rxjs';
 import { FormGroup } from '@angular/forms';
-import { USER_FORM } from './UserFormlyField.model';
+import { USER_FORM, INIT_FORM } from './UserFormlyField.model';
+import { User } from 'src/app/services/look-back/look-back.model';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-user',
@@ -18,15 +21,22 @@ export class AddUserComponent implements OnInit {
   /** Form - Formly */
   public form = new FormGroup({}); // form
   public fields: Array<FormlyFieldConfig> = USER_FORM;
-  public model = {};
+  public model: User = INIT_FORM;
   public options: FormlyFormOptions = {};
 
-  constructor(private modalService: NgbModal) { }
+  constructor(private modalService: NgbModal, private lookBackService: LookBackService, private toastr: ToastrService) { }
 
   ngOnInit(): void { }
 
   public saveUser() {
-    console.log(this.model);
+    this.lookBackService.addUser(this.model).subscribe(() => {
+      this.toastr.success('User saved');
+      this.modalRef.close();
+      this.model = INIT_FORM;
+      this.observer.next(), this.observer.complete();
+    }, () => {
+      this.toastr.error('User not saved');
+    });
   }
 
   /**

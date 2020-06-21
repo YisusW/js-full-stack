@@ -12,6 +12,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
 import { AddUserComponent } from './data-manager/add-user/add-user.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import { AddUserComponent } from './data-manager/add-user/add-user.component';
     HttpClientModule,
     NgbModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     FormlyModule.forRoot(),
     FormlyBootstrapModule
   ],

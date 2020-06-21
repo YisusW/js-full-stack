@@ -1,5 +1,12 @@
 import { FormlyFieldConfig } from '@ngx-formly/core';
 
+export const INIT_FORM = {
+  link: '',
+  site_admin: false,
+  login: '',
+  type: ''
+};
+
 export const USER_FORM = [
   {
     fieldGroupClassName: 'row',

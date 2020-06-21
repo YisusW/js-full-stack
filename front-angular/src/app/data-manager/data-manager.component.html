@@ -17,6 +17,33 @@
   </div>
 </div>
 
+<div class="mt-5 col-12">
+  <h5 class="card-title text-center">List users</h5>
+  <table class="table">
+    <thead>
+      <th>Login</th>
+      <th>Type</th>
+      <th>Admin</th>
+      <th>Url</th>
+      <th>Action</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{user.login}}</td>
+        <td>{{user.type}}</td>
+        <td>{{user.site_admin}}</td>
+        <td><a href="{{user.link}}" target="_blank">{{user.link}}</a></td>
+        <td class="d-flex justify-content-between">
+          <button type="button" class="btn btn-sm btn-info">Edit</button>
+          <button type="button" class="btn btn-sm btn-danger">Delete</button>
+        </td>
+      </tr>
+      <tr *ngIf="users.length === 0">
+        <td colspan="6"><span class="text-center">NOT MATCHING DATA</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 <app-list-users-import #listUsers></app-list-users-import>
 <app-add-user #addUser></app-add-user>

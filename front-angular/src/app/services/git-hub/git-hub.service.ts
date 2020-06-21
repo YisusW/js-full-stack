@@ -1,4 +1,4 @@
-import { Users } from './git-hub.model';
+import { User } from './git-hub.model';
 import { environment } from 'src/environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -14,9 +14,9 @@ export class GitHubService {
     this.baseUrl = environment.apiGitHub;
   }
 
-  public getUsers(): Observable<Array<Users>> {
+  public getUsers(): Observable<Array<User>> {
     const endPoint = `${this.baseUrl}/users`;
 
-    return this.http.get<Array<Users>>(endPoint);
+    return this.http.get<Array<User>>(endPoint);
   }
 }
