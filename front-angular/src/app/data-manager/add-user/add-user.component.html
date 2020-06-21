@@ -1,0 +1,23 @@
+
+<ng-template #content>
+  <div class="modal-header bg-gray">
+    <h3 translate>New User</h3>
+  </div>
+  <div class="modal-body">
+    <div class="row my-3">
+      <div class="container">
+        <div class="d-flex flex-column">
+          <div class="modal-body">
+            <form [formGroup]="form" (ngSubmit)="saveUser()">
+              <formly-form [model]="model" [fields]="fields" [options]="options" [form]="form"></formly-form>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer bg-gray">
+    <button class="btn btn-outline-secondary" (click)="cancel()">Cancel</button>
+    <button class="btn btn-outline-success" [disabled]="!form.valid" (click)="saveUser()">Save</button>
+  </div>
+</ng-template>
