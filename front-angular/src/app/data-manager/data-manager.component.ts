@@ -3,6 +3,7 @@ import { ListUsersImportComponent } from './list-users-import/list-users-import.
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { LookBackService } from '../services/look-back/look-back.service';
 import { User } from '../services/look-back/look-back.model';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-data-manager',
@@ -15,7 +16,7 @@ export class DataManagerComponent implements OnInit {
 
   public users: Array<User> = [];
 
-  constructor(private lookBackService: LookBackService) { }
+  constructor(private lookBackService: LookBackService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.getUsers();
@@ -35,9 +36,17 @@ export class DataManagerComponent implements OnInit {
     });
   }
 
-  public deleteUser() {
+  public deleteUser(id: string) {
     const question = confirm('Are you sure to delete this user?');
 
     if (!question) { return; }
+
+    this.lookBackService.deleteUset(id).subscribe(
+      () => {
+        this.toastr.success('User deleted'), this.getUsers();
+      }, error => {
+        this.toastr.error(JSON.stringify(error));
+      }
+    );
   }
 }

@@ -25,4 +25,10 @@ export class LookBackService {
 
     return this.http.post<Array<User>>(url, payloadUser);
   }
+
+  public deleteUset(id: string): Observable<void> {
+    const url = `${this.baseUrl}/users/${id}`;
+
+    return this.http.delete<void>(url);
+  }
 }

@@ -4,12 +4,12 @@ import {juggler} from '@loopback/repository';
 const config = {
   name: 'mongo',
   connector: 'mongodb',
-  url: 'mongodb+srv://yisus_machine:Z3kFKuxJ3KJT1zjT@cluster0-srfb4.mongodb.net/test?authSource=admin&replicaSet=Cluster0-shard-0&readPreference=primary&appname=MongoDB%20Compass%20Community&ssl=true',
+  url: 'mongodb+srv://yisus_machine:pIZVnBLO6bSduTGR@cluster0-srfb4.mongodb.net/test?authSource=admin&replicaSet=Cluster0-shard-0&readPreference=primary&appname=MongoDB%20Compass%20Community&ssl=true',
   host: 'cluster0-srfb4.mongodb.net',
   port: 27017,
   user: 'yisus_machine',
-  password: 'Z3kFKuxJ3KJT1zjT',
-  database: 'full-stack-js',
+  password: 'pIZVnBLO6bSduTGR',
+  database: 'test',
   useNewUrlParser: true
 };
 

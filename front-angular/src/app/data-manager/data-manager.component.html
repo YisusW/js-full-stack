@@ -35,7 +35,7 @@
         <td><a href="{{user.link}}" target="_blank">{{user.link}}</a></td>
         <td class="d-flex justify-content-between">
           <button type="button" class="btn btn-sm btn-info">Edit</button>
-          <button type="button" class="btn btn-sm btn-danger">Delete</button>
+          <button type="button" class="btn btn-sm btn-danger" (click)="deleteUser(user.id)">Delete</button>
         </td>
       </tr>
       <tr *ngIf="users.length === 0">
