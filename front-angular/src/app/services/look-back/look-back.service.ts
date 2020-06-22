@@ -33,6 +33,12 @@ export class LookBackService {
     return this.http.delete<void>(url);
   }
 
+  public editUser(id: string, user: User): Observable<void> {
+    const url = `${this.baseUrl}/users/${id}`;
+
+    return this.http.put<void>(url, user);
+  }
+
   public importUsers(users: Array<UserGitHub>): Observable<boolean>{
     const url = `${this.baseUrl}/users-import`;
 

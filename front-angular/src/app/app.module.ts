@@ -14,6 +14,7 @@ import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
 import { AddUserComponent } from './data-manager/add-user/add-user.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { EditUserComponent } from './data-manager/edit-user/edit-user.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ToastrModule } from 'ngx-toastr';
     GraphicsComponent,
     WellcomeComponent,
     ListUsersImportComponent,
-    AddUserComponent
+    AddUserComponent,
+    EditUserComponent
   ],
   imports: [
     BrowserModule,

@@ -139,7 +139,7 @@ export class UserController {
     },
   })
   async findById(
-    @param.path.number('id') id: string,
+    @param.path.string('id') id: string,
     @param.filter(User, {exclude: 'where'}) filter?: FilterExcludingWhere<User>
   ): Promise<User> {
     return this.userRepository.findById(id, filter);
@@ -153,7 +153,7 @@ export class UserController {
     },
   })
   async updateById(
-    @param.path.number('id') id: string,
+    @param.path.string('id') id: string,
     @requestBody({
       content: {
         'application/json': {
@@ -174,7 +174,7 @@ export class UserController {
     },
   })
   async replaceById(
-    @param.path.number('id') id: string,
+    @param.path.string('id') id: string,
     @requestBody() user: User,
   ): Promise<void> {
     await this.userRepository.replaceById(id, user);

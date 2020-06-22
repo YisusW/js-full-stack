@@ -34,7 +34,7 @@
         <td><input type="checkbox" [checked]="user.site_admin" disabled=true> </td>
         <td><a href="{{user.link}}" target="_blank">{{user.link}}</a></td>
         <td class="d-flex justify-content-between">
-          <button type="button" class="btn btn-sm btn-info">Edit</button>
+          <button type="button" class="btn btn-sm btn-info" (click)="openEditUser(user)">Edit</button>
           <button type="button" class="btn btn-sm btn-danger" (click)="deleteUser(user.id)">Delete</button>
         </td>
       </tr>
@@ -47,3 +47,4 @@
 
 <app-list-users-import #listUsers></app-list-users-import>
 <app-add-user #addUser></app-add-user>
+<app-edit-user #editUser></app-edit-user>
