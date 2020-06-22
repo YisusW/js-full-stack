@@ -19,8 +19,8 @@
 
 <div class="mt-5 col-12">
   <h5 class="card-title text-center">List users</h5>
-  <table class="table">
-    <thead>
+  <table class="table table-bordered">
+    <thead class="text-center">
       <th>Login</th>
       <th>Type</th>
       <th>Admin</th>
@@ -28,10 +28,10 @@
       <th>Action</th>
     </thead>
     <tbody>
-      <tr *ngFor="let user of users">
+      <tr *ngFor="let user of users" class="text-center">
         <td>{{user.login}}</td>
         <td>{{user.type}}</td>
-        <td>{{user.site_admin}}</td>
+        <td><input type="checkbox" [checked]="user.site_admin" disabled=true> </td>
         <td><a href="{{user.link}}" target="_blank">{{user.link}}</a></td>
         <td class="d-flex justify-content-between">
           <button type="button" class="btn btn-sm btn-info">Edit</button>

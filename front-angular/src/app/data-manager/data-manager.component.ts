@@ -23,7 +23,7 @@ export class DataManagerComponent implements OnInit {
   }
 
   public importUsers() {
-    this.listUsers.open().subscribe();
+    this.listUsers.open().subscribe(() => this.getUsers());
   }
 
   public addUserClick() {

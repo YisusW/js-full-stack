@@ -49,6 +49,26 @@ export class UserController {
     return this.userRepository.create(user);
   }
 
+  @post('/users-import', {
+    responses: {
+      '201': {
+        description: 'Users git hub',
+        content: {'application/json': {schema: getModelSchemaRef(User)}},
+      },
+    },
+  })
+  async store(
+    @requestBody({
+      content: {
+        'application/json': { schema: getModelSchemaRef(User) }
+      },
+    })
+    users: [User],
+  ): Promise<void> {
+    await this.userRepository.createAll(users)
+    return;
+  }
+
   @get('/users/count', {
     responses: {
       '200': {

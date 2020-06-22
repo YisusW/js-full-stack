@@ -1,27 +1,27 @@
 
 <ng-template #content>
   <div class="modal-header bg-gray">
-    <h3 translate>Users</h3>
+    <h3 translate>Users in GitHub</h3>
   </div>
   <div class="modal-body">
     <div class="row my-3">
       <div class="container">
         <div class="d-flex flex-column">
           <table class="table">
-            <thead>
+            <thead class="text-center">
               <th>Login</th>
               <th>Id</th>
               <th>Type</th>
-              <th>Site admin</th>
+              <th>Admin</th>
               <th>Url</th>
             </thead>
             <tbody>
-              <tr *ngFor="let user of users">
+              <tr *ngFor="let user of users" class="text-center">
                 <td>{{ user.login }}</td>
                 <td>{{ user.id }}</td>
                 <td>{{ user.type }}</td>
-                <td>{{ user.site_admin }}</td>
-                <td>{{ user.url }}</td>
+                <td><input type="checkbox" [checked]="user.site_admin" disabled=true></td>
+                <td><a href="{{user.url}}" target="_blank">See profile</a></td>
               </tr>
             </tbody>
           </table>
@@ -30,8 +30,7 @@
     </div>
   </div>
   <div class="modal-footer bg-gray">
-    <div class="col m-0 text-right">
-      <button class="btn btn-default" (click)="cancel()">Cancel</button>
-    </div>
+    <button class="btn btn-outline-secondary" (click)="cancel()">Cancel</button>
+    <button class="btn btn-outline-success" (click)="saveDataImport()">Store Information</button>
   </div>
 </ng-template>

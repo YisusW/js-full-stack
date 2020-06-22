@@ -1,5 +1,6 @@
 import { User } from './look-back.model';
 import { HttpClient } from '@angular/common/http';
+import { User as UserGitHub } from 'src/app/services/git-hub/git-hub.model';
 import { environment } from './../../../environments/environment';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -30,5 +31,11 @@ export class LookBackService {
     const url = `${this.baseUrl}/users/${id}`;
 
     return this.http.delete<void>(url);
+  }
+
+  public importUsers(users: Array<UserGitHub>): Observable<boolean>{
+    const url = `${this.baseUrl}/users-import`;
+
+    return this.http.post<boolean>(url, users);
   }
 }
