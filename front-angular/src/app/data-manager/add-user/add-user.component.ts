@@ -32,7 +32,7 @@ export class AddUserComponent implements OnInit {
     this.lookBackService.addUser(this.model).subscribe(() => {
       this.toastr.success('User saved');
       this.modalRef.close();
-      this.model = INIT_FORM;
+      this.options.resetModel();
       this.observer.next(), this.observer.complete();
     }, () => {
       this.toastr.error('User not saved');
