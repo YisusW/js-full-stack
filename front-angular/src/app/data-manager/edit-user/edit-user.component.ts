@@ -1,11 +1,11 @@
-import { User } from './../../services/look-back/look-back.model';
+import { User } from './../../services/loop-back/loop-back.model';
 import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
 import { NgbModalRef, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Observer, Observable } from 'rxjs';
 import { FormGroup } from '@angular/forms';
 import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 import { USER_FORM } from '../add-user/UserFormlyField.model';
-import { LookBackService } from 'src/app/services/look-back/look-back.service';
+import { LoopBackService } from 'src/app/services/loop-back/loop-back.service';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -24,14 +24,14 @@ export class EditUserComponent implements OnInit {
   public model: User;
   public options: FormlyFormOptions = {};
 
-  constructor(private modalService: NgbModal, private lookBackService: LookBackService, private toastr: ToastrService) { }
+  constructor(private modalService: NgbModal, private loopBackService: LoopBackService, private toastr: ToastrService) { }
 
   ngOnInit(): void {}
 
   public saveUser() {
     const user = {...this.model};
     delete user.id;
-    this.lookBackService.editUser(this.model.id, user).subscribe(
+    this.loopBackService.editUser(this.model.id, user).subscribe(
       () => {
         this.toastr.success('User updated successfully');
         this.modalRef.close();

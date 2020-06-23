@@ -1,18 +1,18 @@
-import { User } from './look-back.model';
+import { User } from './loop-back.model';
 import { HttpClient } from '@angular/common/http';
 import { User as UserGitHub } from 'src/app/services/git-hub/git-hub.model';
-import { environment } from './../../../environments/environment';
+import { environment } from '../../../environments/environment';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class LookBackService {
+export class LoopBackService {
   private baseUrl: string;
 
   constructor(private http: HttpClient) {
-    this.baseUrl = environment.apiLookBack;
+    this.baseUrl = environment.apiLoopBack;
   }
 
   public getUsers(): Observable<Array<User>> {

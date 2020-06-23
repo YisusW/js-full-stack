@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { LookBackService } from './look-back.service';
+import { LoopBackService } from './loop-back.service';
 
-describe('LookBackService', () => {
-  let service: LookBackService;
+describe('LoopBackService', () => {
+  let service: LoopBackService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(LookBackService);
+    service = TestBed.inject(LoopBackService);
   });
 
   it('should be created', () => {

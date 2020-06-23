@@ -1,10 +1,10 @@
-import { User } from 'src/app/services/look-back/look-back.model';
+import { User } from 'src/app/services/loop-back/loop-back.model';
 import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
 import { NgbModalRef, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Observer, Observable } from 'rxjs';
 import { User as GitHubUser } from 'src/app/services/git-hub/git-hub.model';
 import { GitHubService } from 'src/app/services/git-hub/git-hub.service';
-import { LookBackService } from 'src/app/services/look-back/look-back.service';
+import { LoopBackService } from 'src/app/services/loop-back/loop-back.service';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -22,7 +22,7 @@ export class ListUsersImportComponent implements OnInit {
   constructor(
     private modalService: NgbModal,
     private gitHubService: GitHubService,
-    private lookBackService: LookBackService,
+    private loopBackService: LoopBackService,
     private toastr: ToastrService
   ) { }
 
@@ -58,7 +58,7 @@ export class ListUsersImportComponent implements OnInit {
       usersToImport.push(this.getUsersModel(user));
     }
 
-    this.lookBackService.importUsers(usersToImport).subscribe(
+    this.loopBackService.importUsers(usersToImport).subscribe(
       () => {
         this.toastr.success('Data imported successfully');
         this.modalRef.close();

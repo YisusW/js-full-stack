@@ -1,8 +1,8 @@
+import { LoopBackService } from './../services/loop-back/loop-back.service';
 import { AddUserComponent } from './add-user/add-user.component';
 import { ListUsersImportComponent } from './list-users-import/list-users-import.component';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { LookBackService } from '../services/look-back/look-back.service';
-import { User } from '../services/look-back/look-back.model';
+import { User } from '../services/loop-back/loop-back.model';
 import { ToastrService } from 'ngx-toastr';
 import { EditUserComponent } from './edit-user/edit-user.component';
 
@@ -18,7 +18,7 @@ export class DataManagerComponent implements OnInit {
 
   public users: Array<User> = [];
 
-  constructor(private lookBackService: LookBackService, private toastr: ToastrService) { }
+  constructor(private loopBackService: LoopBackService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.getUsers();
@@ -39,7 +39,7 @@ export class DataManagerComponent implements OnInit {
   }
 
   private getUsers() {
-    this.lookBackService.getUsers().subscribe((users: Array<User>) => {
+    this.loopBackService.getUsers().subscribe((users: Array<User>) => {
       this.users = users;
     });
   }
@@ -49,7 +49,7 @@ export class DataManagerComponent implements OnInit {
 
     if (!question) { return; }
 
-    this.lookBackService.deleteUset(id).subscribe(
+    this.loopBackService.deleteUset(id).subscribe(
       () => {
         this.toastr.success('User deleted'), this.getUsers();
       }, error => {

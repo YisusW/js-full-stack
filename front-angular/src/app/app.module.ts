@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DataManagerComponent } from './data-manager/data-manager.component';
 import { GraphicsComponent } from './graphics/graphics.component';
-import { WellcomeComponent } from './wellcome/wellcome.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ListUsersImportComponent } from './data-manager/list-users-import/list-users-import.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -21,7 +21,7 @@ import { EditUserComponent } from './data-manager/edit-user/edit-user.component'
     AppComponent,
     DataManagerComponent,
     GraphicsComponent,
-    WellcomeComponent,
+    WelcomeComponent,
     ListUsersImportComponent,
     AddUserComponent,
     EditUserComponent
