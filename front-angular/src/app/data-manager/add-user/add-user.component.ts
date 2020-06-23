@@ -3,7 +3,7 @@ import { User } from 'src/app/services/loop-back/loop-back.model';
 import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
 import {FormlyFieldConfig, FormlyFormOptions} from '@ngx-formly/core';
 import { NgbModalRef, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { Observer, Observable } from 'rxjs';
 import { FormGroup } from '@angular/forms';
 import { USER_FORM, INIT_FORM } from './UserFormlyField.model';
 import { ToastrService } from 'ngx-toastr';
@@ -17,7 +17,7 @@ export class AddUserComponent implements OnInit {
   /** Modal */
   @ViewChild('content', { static: false }) content: TemplateRef<ViewChild>;
   private modalRef: NgbModalRef;
-  private observer: BehaviorSubject<void>;
+  private observer: Observer<void>;
   /** Form - Formly */
   public form = new FormGroup({}); // form
   public fields: Array<FormlyFieldConfig> = USER_FORM;
@@ -44,8 +44,10 @@ export class AddUserComponent implements OnInit {
    */
   public open(): Observable<void> {
 
-    this.modalRef = this.modalService.open(this.content, { size: 'lg' });
-    return this.observer;
+    return new Observable<void>(observer => {
+      this.observer = observer;
+      this.modalRef = this.modalService.open(this.content, { size: 'lg' });
+    });
   }
 
   public cancel(): void {
