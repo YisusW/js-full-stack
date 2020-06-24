@@ -19,7 +19,7 @@ to run the front-angular project, you need to have an enviroment ready, because 
 ```
 export const environment = {
   production: false,
-  apiLookBack: 'http://localhost:3000', // this will be a lookback project
+  apiLookBack: 'http://SERVER_API_LOOK_BACK:PORT', // this will be a lookback project
   apiGitHub: 'https://api.github.com' // this is api github
 };
 ```
