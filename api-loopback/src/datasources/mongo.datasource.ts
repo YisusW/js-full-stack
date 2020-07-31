@@ -4,11 +4,11 @@ import {juggler} from '@loopback/repository';
 const config = {
   name: 'mongo',
   connector: 'mongodb',
-  url: 'mongodb+srv://yisus_machine:pIZVnBLO6bSduTGR@cluster0-srfb4.mongodb.net/test?authSource=admin&replicaSet=Cluster0-shard-0&readPreference=primary&appname=MongoDB%20Compass%20Community&ssl=true',
-  host: 'cluster0-srfb4.mongodb.net',
+  url: '',
+  host: 'localhost',
   port: 27017,
   user: 'yisus_machine',
-  password: 'pIZVnBLO6bSduTGR',
+  password: '',
   database: 'test',
   useNewUrlParser: true
 };
@@ -25,7 +25,7 @@ export class MongoDataSource extends juggler.DataSource
 
   constructor(
     @inject('datasources.config.mongo', {optional: true})
-    dsConfig: object = config,
+    dsConfig: object = {},
   ) {
     super(dsConfig);
   }
